@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>4차시 · 제미나이 노트북 활용 · 대한민국시도연구원협의회</title>
+<style>
+  /* ===== 디자인 토큰 (색은 여기서만 바꾼다) ===== */
+  :root{
+    --brand:#5b8fd6;--brand-dark:#3f72bd;--brand-soft:#eef4fb;
+    --ink:#1f2937;--ink-soft:#6b7280;--line:#e5e7eb;--bg:#f7f8fa;--card:#ffffff;
+    --code-bg:#f3f4f6;--note:#eef4fb;--note-bd:#5b8fd6;--warn:#fff7ed;--warn-bd:#ea580c;
+    --tip:#fffbeb;--tip-bd:#d4a017;--ok:#16a34a;--nav-h:118px;--radius:14px;
+    --shadow:0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  .statusbar{height:4px;background:linear-gradient(90deg,var(--brand),var(--brand-dark));}
+  .header{padding:34px 0 26px;}
+  .header .logo{display:inline-block;font-weight:800;letter-spacing:-.5px;color:var(--brand-dark);font-size:15px;margin-bottom:14px;padding:5px 12px;background:var(--brand-soft);border-radius:999px;}
+  .header .eyebrow{color:var(--ink-soft);font-size:14px;font-weight:600;margin:0 0 6px;}
+  .header h1{margin:0 0 8px;font-size:30px;letter-spacing:-1px;line-height:1.25;}
+  .header .subtitle{margin:0 0 16px;color:var(--ink-soft);font-size:16px;}
+  .header .guide{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:8px;padding:8px 13px;}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .nav-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0;}
+  .nav-row.sub{padding-top:9px;border-top:1px dashed var(--line);}
+  .nav-btn{text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:8px;transition:.15s;white-space:nowrap;}
+  .nav-btn:hover{border-color:var(--brand);color:var(--brand-dark);}
+  .nav-btn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .nav-btn.back{color:var(--ink-soft);}
+  .nav-divider{width:1px;height:20px;background:var(--line);margin:0 4px;}
+  .nav-label{font-size:12px;color:var(--ink-soft);font-weight:600;margin-right:4px;}
+  .anchor{text-decoration:none;font-size:13px;color:var(--ink-soft);padding:4px 10px;border-radius:6px;transition:.15s;}
+  .anchor:hover{background:var(--brand-soft);color:var(--brand-dark);}
+  main{padding:32px 0 60px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 30px;margin-bottom:24px;scroll-margin-top:calc(var(--nav-h) + 16px);}
+  .card > h2{margin:0 0 8px;font-size:21px;letter-spacing:-.5px;padding-bottom:12px;border-bottom:2px solid var(--line);}
+  .card > h2 .num{color:var(--brand);font-weight:800;margin-right:8px;}
+  .card > h3{font-size:15px;margin:20px 0 8px;color:var(--brand-dark);}
+  .card p{margin:0 0 14px;}.card p:last-child{margin-bottom:0;}
+  .muted{color:var(--ink-soft);font-size:14px;}
+  .lead{font-size:15px;color:var(--ink-soft);margin:0 0 18px;}
+  .phase{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--brand-dark);padding:3px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:.3px;}
+  /* 숫자 강조 그리드 */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:16px 0;}
+  .stat{background:var(--brand-soft);border-radius:12px;padding:18px 16px;text-align:center;}
+  .stat .big{font-size:30px;font-weight:800;color:var(--brand-dark);line-height:1.1;}
+  .stat .cap{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  /* 3단 카드 */
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:16px 0;}
+  .mcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .mcard .top{background:var(--brand-soft);padding:12px 16px;border-bottom:1px solid var(--line);}
+  .mcard .top b{font-size:15px;}.mcard .top .en{font-size:12px;color:var(--ink-soft);display:block;}
+  .mcard .body{padding:12px 16px;font-size:13.5px;color:var(--ink-soft);}
+  /* 프롬프트 박스 (핵심) */
+  .prompt{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0;background:#fff;}
+  .prompt-head{display:flex;align-items:center;justify-content:space-between;background:#f9fafb;border-bottom:1px solid var(--line);padding:9px 14px;}
+  .prompt-head .label{font-size:13px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:7px;}
+  .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
+  .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
+  .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
+  .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
+  /* 노트/경고/팁 */
+  .box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;}
+  .box .box-title{font-weight:700;margin-bottom:4px;display:block;}
+  .box.note{background:var(--note);border-left:4px solid var(--note-bd);}
+  .box.warn{background:var(--warn);border-left:4px solid var(--warn-bd);}
+  .box.tip{background:var(--tip);border-left:4px solid var(--tip-bd);}
+  /* 기대 답변 */
+  .answer{font-size:13px;color:var(--ink-soft);margin:6px 2px 0;}
+  .answer b{color:var(--brand-dark);}
+  /* 테이블 */
+  .table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .table th,.table td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  .table thead th{background:var(--brand);color:#fff;font-weight:700;}
+  .table tbody tr:nth-child(even){background:#fafbfc;}
+  .table tbody tr:last-child td{border-bottom:none;}
+  .table td strong{color:var(--brand-dark);}
+  /* 번호 스텝 */
+  .steps{list-style:none;counter-reset:step;margin:16px 0;padding:0;}
+  .steps li{counter-increment:step;position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line);}
+  .steps li:last-child{border-bottom:none;}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .steps li b{display:block;font-size:15px;margin-bottom:2px;}.steps li span{color:var(--ink-soft);font-size:14px;}
+  /* 체크리스트 */
+  .checklist{list-style:none;margin:16px 0;padding:0;}
+  .checklist li{position:relative;padding:9px 0 9px 30px;font-size:14.5px;border-bottom:1px solid var(--line);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"☐";position:absolute;left:0;top:8px;color:var(--brand);font-size:18px;line-height:1;}
+  .checklist li .ex{color:var(--ink-soft);font-size:13.5px;}
+  /* 푸터/토스트 */
+  footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:13px;text-align:center;padding:24px 0;}
+  footer strong{color:var(--ink);}
+  #toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:#111827;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;}
+  #toast.show{opacity:1;transform:translate(-50%,0);}
+  @media(max-width:640px){.header h1{font-size:24px;}.card{padding:22px 18px;}:root{--nav-h:150px;}}
+</style>
+</head>
+<body>
+
+<div class="statusbar"></div>
+
+<header class="header">
+  <div class="wrap">
+    <span class="logo">대한민국시도연구원협의회</span>
+    <p class="eyebrow">행정직 대상 생성형 AI 활용 · 4차시 · 강사 김현경</p>
+    <h1>제미나이 노트북 활용</h1>
+    <p class="subtitle">규정 · 매뉴얼을 근거 조항까지 찾아주는 도우미</p>
+    <span class="guide">💡 실습 프롬프트는 복사 버튼으로 붙여넣으세요</span>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-row">
+      <a class="nav-btn back" href="index.html">← 목록으로</a>
+      <span class="nav-divider"></span>
+      <a class="nav-btn" href="session_1.html">1차시</a>
+      <a class="nav-btn" href="session_2.html">2차시</a>
+      <a class="nav-btn" href="session_3.html">3차시</a>
+      <a class="nav-btn active" href="session_4.html">4차시</a>
+      <a class="nav-btn" href="session_5.html">5차시</a>
+    </div>
+    <div class="nav-row sub">
+      <span class="nav-label">바로가기</span>
+      <a class="anchor" href="#s1">노트북이란</a>
+      <a class="anchor" href="#s2">시뮬레이션</a>
+      <a class="anchor" href="#s3">자료 준비</a>
+      <a class="anchor" href="#s4">요약 · 질의응답</a>
+      <a class="anchor" href="#s5">교차 확인</a>
+      <a class="anchor" href="#s6">스튜디오 6종</a>
+      <a class="anchor" href="#s7">마무리</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" id="s1">
+      <h2><span class="num">01</span>제미나이 노트북이란</h2>
+      <p class="lead">내가 올린 자료만 보고, 출처 페이지를 달아 답하는 AI입니다.</p>
+      <div class="grid3">
+        <div class="mcard"><div class="top"><b>자료 기반</b></div><div class="body">올린 규정집 안에서만 답변</div></div>
+        <div class="mcard"><div class="top"><b>근거 인용</b></div><div class="body">조항 · 페이지 자동 표시</div></div>
+        <div class="mcard"><div class="top"><b>환각 최소</b></div><div class="body">지어내지 않아 규정 업무에 안전</div></div>
+      </div>
+      <table class="table">
+        <thead><tr><th>구분</th><th>ChatGPT · Gemini</th><th>제미나이 노트북</th></tr></thead>
+        <tbody>
+          <tr><td><strong>답변 범위</strong></td><td>인터넷 전체에서 답변</td><td>내 자료 안에서만 답변</td></tr>
+          <tr><td><strong>환각</strong></td><td>위험 있음</td><td>최소화</td></tr>
+          <tr><td><strong>출처</strong></td><td>불명확</td><td>페이지 인용 자동</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="s2">
+      <h2><span class="num">02</span>오늘의 시뮬레이션</h2>
+      <div class="box note"><span class="box-title">📌 상황</span>신규 담당자가 출장비 · 복무 · 계약 규정을 매번 물어보고, 규정집은 수백 쪽이라 필요한 조항을 찾기 번거롭다.</div>
+      <div class="box tip"><span class="box-title">💡 목표</span>규정집을 통째로 올려두고, 질문하면 근거 조항 · 페이지까지 바로 찾아주는 '규정 도우미'를 만든다.</div>
+      <p class="muted">핵심 — 인터넷이 아니라 '우리 규정' 안에서, 출처를 달아 답합니다.</p>
+    </section>
+
+    <section class="card" id="s3">
+      <h2><span class="num">03</span>실습 자료 준비</h2>
+      <p class="lead">회원 기관(각 시 · 도 연구원) 내부 문서를 업로드합니다. (개인정보 · 대외비 제외)</p>
+      <table class="table">
+        <thead><tr><th>문서</th><th>포함 내용</th></tr></thead>
+        <tbody>
+          <tr><td><strong>복무 규정</strong></td><td>근무 · 유연근무 · 연가 · 병가</td></tr>
+          <tr><td><strong>여비(출장) 규정</strong></td><td>운임 · 숙박 · 일비 · 정산</td></tr>
+          <tr><td><strong>회계 · 예산 지침</strong></td><td>지출 절차 · 법인카드</td></tr>
+          <tr><td><strong>계약 · 물품 매뉴얼</strong></td><td>계약 방법 · 구매 서류</td></tr>
+        </tbody>
+      </table>
+      <div class="box note"><span class="box-title">📌 실습 파일</span>실습용 예시 규정집(가상)을 제공합니다 — 복무 · 여비 · 회계 · 계약 4장, 조항 · 페이지 포함. 이 PDF를 노트북에 올려 바로 실습하세요.</div>
+    </section>
+
+    <section class="card" id="s4">
+      <span class="phase">실습 ① ②</span>
+      <h2><span class="num">04</span>규정 요약 &amp; 근거 질의응답</h2>
+      <p class="lead">답변에 붙은 인용을 클릭하면 원문 페이지로 이동해 바로 확인할 수 있습니다.</p>
+      <h3>① 규정 요약 (전체 파악)</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">규정 요약</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>올린 규정집 · 매뉴얼의 핵심을 항목별로 요약해줘. 각 항목에 근거 조항 · 페이지를 표시.</pre>
+      </div>
+      <h3>② 근거 질의응답</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">출장비 한도 · 정산</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>국내 출장비 지급 한도와 정산 절차를 알려줘. 근거 조항 · 페이지 표시.</pre>
+      </div>
+      <p class="answer">기대 답변 — <b>제12~15조</b></p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">연가 · 병가 기준</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>연가 · 병가 사용 기준과 신청 절차는? 근거 조항 표시.</pre>
+      </div>
+      <p class="answer">기대 답변 — <b>제6 · 7조</b></p>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">물품 구매 계약</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>300만 원 이하 물품 구매 시 계약 방법과 필요한 서류는?</pre>
+      </div>
+      <p class="answer">기대 답변 — <b>제19 · 20조</b></p>
+    </section>
+
+    <section class="card" id="s5">
+      <span class="phase">실습 ③ ④</span>
+      <h2><span class="num">05</span>교차 확인 &amp; 상황 적용</h2>
+      <h3>③ 규정 간 상충 · 중복 점검</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">상충 · 중복 점검</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>복무 규정과 출장 규정에서 서로 상충되거나 중복되는 내용이 있으면 찾아 표시해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>사람이 놓치기 쉬운 규정 간 충돌을 자동 점검</b></p>
+      <h3>④ 실제 업무 상황에 대입</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">출장비 청구 상황 적용</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>직원이 1박 2일 세종 출장 후 교통 · 숙박비를 청구하려 해.
+우리 규정상 지급 한도와 필요한 증빙을 근거 조항과 함께 정리해줘.</pre>
+      </div>
+      <p class="answer">기대 답변 — <b>숙박 제13조 · 증빙 제15조</b></p>
+    </section>
+
+    <section class="card" id="s6">
+      <span class="phase">스튜디오</span>
+      <h2><span class="num">06</span>스튜디오 6종 — 같은 자료로 6가지 산출물</h2>
+      <p class="lead">규정집 하나만 올려두면 조회부터 안내 보고서 · 교육 슬라이드까지 자동으로 만들어집니다.</p>
+
+      <h3>① 보고서 — 신규 입사자용 안내</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 보고서</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집을 근거로 '신규 입사자용 복무 · 여비 안내 보고서' 초안을 작성해줘.
+
+구성 :
+1. 근무시간 · 유연근무 2. 연가 · 병가 · 특별휴가
+3. 출장 신청 · 정산 절차 4. 자주 하는 실수
+
+개조식 문어체로, 각 항목에 근거 조항 · 페이지를 표시.</pre>
+      </div>
+      <p class="answer">활용 — <b>내부 공지 · 신규자 배포용 안내 보고서로 바로 사용</b></p>
+
+      <h3>② 슬라이드 — 오리엔테이션 발표자료</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 슬라이드</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>위 안내 내용을 신규 직원 오리엔테이션용 발표 슬라이드 10장으로 만들어줘.
+
+구성 : 표지 · 근무시간 · 유연근무 · 연가 · 병가 · 특별휴가 · 출장 신청 절차 · 출장비 한도 · 계약 · 물품 구매 · 자주 하는 실수 · 문의처
+
+[디자인] 흰 배경 · 포인트 색 파랑 1가지 · 이모지 금지 · 슬라이드마다 핵심 메시지 1개 · 제목은 좌상단 고정.</pre>
+      </div>
+      <p class="answer">활용 — <b>규정 교육 · 오리엔테이션 발표자료로 바로 사용</b></p>
+
+      <h3>③ 마인드맵 — 규정 체계 한눈에</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 마인드맵</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집 전체 구조를 마인드맵으로 정리해줘. 중심은 '행정 규정', 가지는 복무 · 여비 · 회계 · 계약 4개, 각 가지 아래에 핵심 조항을 배치.</pre>
+      </div>
+      <p class="answer">활용 — <b>규정집 전체 체계 · 연결관계를 한눈에 파악</b></p>
+
+      <h3>④ 신규자 FAQ</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · FAQ</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집으로 신규 담당자가 자주 묻는 질문 10개와 답변을 FAQ 형식으로 만들어줘. 각 답변에 근거 조항 · 페이지를 표시.</pre>
+      </div>
+      <p class="answer">활용 — <b>신규자 안내 · 인수인계 문서로 바로 사용</b></p>
+
+      <h3>⑤ 업무 체크리스트</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 체크리스트</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>출장 정산 처리 절차를 규정 순서대로 체크리스트로 만들어줘. 각 단계에 필요한 증빙과 근거 조항을 함께 표시.</pre>
+      </div>
+      <p class="answer">활용 — <b>실무 처리 누락 방지 · 업무 표준화</b></p>
+
+      <h3>⑥ 오디오 요약</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 오디오 개요</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집의 복무 · 여비 핵심을 신규 직원이 이동 중에 들을 수 있는 3분 분량 개요로 정리해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>이동 중 학습 · 사전 브리핑</b></p>
+    </section>
+
+    <section class="card" id="s7">
+      <h2><span class="num">07</span>활용 &amp; 주의</h2>
+      <div class="grid3">
+        <div class="mcard"><div class="top"><b>규정 · 지침 빠른 조회</b></div><div class="body">수백 쪽에서 필요한 조항만</div></div>
+        <div class="mcard"><div class="top"><b>여러 규정 한 번에 비교</b></div><div class="body">상충 · 중복 자동 점검</div></div>
+        <div class="mcard"><div class="top"><b>신규 담당자 인수인계</b></div><div class="body">FAQ · 체크리스트 자동 생성</div></div>
+        <div class="mcard"><div class="top"><b>감사 대비 근거 확인</b></div><div class="body">조항 · 페이지 인용 확보</div></div>
+      </div>
+      <div class="box warn"><span class="box-title">⚠ 주의</span>
+        개인정보 · 대외비 문서는 업로드 금지 · 답변의 근거 페이지를 반드시 확인 · 공식 처리 시 원문 규정 재확인
+      </div>
+      <ul class="checklist">
+        <li><b>규정집을 업로드했는가</b> — <span class="ex">개인정보 · 대외비 제외</span></li>
+        <li><b>인용 페이지를 눌러 확인했는가</b> — <span class="ex">답변 옆 인용 → 원문 페이지</span></li>
+        <li><b>스튜디오 산출물을 하나 만들었는가</b> — <span class="ex">보고서 · 슬라이드 · FAQ 중 택 1</span></li>
+      </ul>
+      <div class="box note"><span class="box-title">📌 다음 단계</span>5차시에서 보고서를 4단계로 나눠 쓰고 PPT까지 만듭니다.</div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>대한민국시도연구원협의회 · 제미나이 노트북 활용</strong> · 4차시 강의안 &nbsp;|&nbsp; 강사 김현경 &nbsp;|&nbsp; © 2026
+  </div>
+</footer>
+
+<div id="toast">복사되었습니다 ✓</div>
+
+<script>
+  function copyPrompt(btn){
+    const pre = btn.closest('.prompt').querySelector('pre');
+    const text = pre.textContent;
+    const onSuccess = () => {
+      btn.textContent = '✓ 복사됨';btn.classList.add('done');
+      const toast = document.getElementById('toast');toast.classList.add('show');
+      setTimeout(() => {btn.textContent='복사';btn.classList.remove('done');toast.classList.remove('show');},2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+    } else { fallbackCopy(); }
+    function fallbackCopy(){
+      const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');onSuccess();}catch(e){alert('복사에 실패했습니다. 직접 선택해 복사해 주세요.');}
+      document.body.removeChild(ta);
+    }
+  }
+</script>
+</body>
+</html>

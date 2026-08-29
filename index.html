@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>대한민국시도연구원협의회 생성형 AI 강의 · 강의 자료실</title>
+<style>
+  :root{
+    --brand:#5b8fd6;--brand-dark:#3f72bd;--brand-soft:#eef4fb;
+    --ink:#1f2937;--ink-soft:#6b7280;--line:#e5e7eb;--bg:#f7f8fa;--card:#ffffff;
+    --radius:14px;--shadow:0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+  .statusbar{height:4px;background:linear-gradient(90deg,var(--brand),var(--brand-dark));}
+  .hero{padding:48px 0 36px;text-align:center;}
+  .hero .logo{display:inline-block;font-weight:800;letter-spacing:-.5px;color:var(--brand-dark);font-size:15px;margin-bottom:16px;padding:6px 14px;background:var(--brand-soft);border-radius:999px;}
+  .hero h1{margin:0 0 12px;font-size:34px;letter-spacing:-1px;line-height:1.25;}
+  .hero p{margin:0;color:var(--ink-soft);font-size:17px;}
+  .hero .meta{margin-top:14px;font-size:14px;color:var(--ink-soft);}
+  .hero .meta b{color:var(--brand-dark);}
+  .hero .meta a{color:var(--brand-dark);font-weight:700;text-decoration:none;border-bottom:1px solid #cfe0f4;transition:.15s;}
+  .hero .meta a:hover{border-bottom-color:var(--brand-dark);}
+  .sec-title{display:flex;align-items:center;gap:10px;margin:14px 0 18px;}
+  .sec-title h2{font-size:20px;margin:0;letter-spacing:-.5px;}
+  .sec-title .dot{width:8px;height:20px;background:var(--brand);border-radius:3px;}
+  .sec-title .hint{margin-left:auto;font-size:13px;color:var(--ink-soft);}
+  main{padding:18px 0 60px;}
+  section{margin-bottom:42px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .session-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 22px;transition:.18s;position:relative;overflow:hidden;}
+  .session-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:.18s;}
+  .session-card:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 8px 24px rgba(91,143,214,.18);}
+  .session-card:hover::before{transform:scaleX(1);}
+  .session-card .badge{align-self:flex-start;font-size:12px;font-weight:700;color:#fff;background:var(--brand);padding:4px 11px;border-radius:999px;margin-bottom:14px;letter-spacing:.3px;}
+  .session-card h3{margin:0 0 8px;font-size:19px;letter-spacing:-.5px;line-height:1.35;}
+  .session-card .desc{margin:0;font-size:14px;color:var(--ink-soft);flex:1;}
+  .session-card .go{margin-top:16px;font-size:13.5px;font-weight:700;color:var(--brand-dark);display:inline-flex;align-items:center;gap:5px;}
+  .session-card .go::after{content:"→";transition:.18s;}
+  .session-card:hover .go::after{transform:translateX(4px);}
+  .dl-group{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:8px 22px;margin-bottom:18px;}
+  .dl-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .dl-row:last-child{border-bottom:none;}
+  .dl-row .fname{font-size:14.5px;}
+  .dl-row .fname .fmeta{color:var(--ink-soft);font-size:12.5px;margin-left:6px;}
+  .dl-btn{flex-shrink:0;text-decoration:none;font-size:13px;font-weight:600;color:#fff;background:var(--brand);border-radius:7px;padding:7px 16px;transition:.15s;white-space:nowrap;}
+  .dl-btn:hover{background:var(--brand-dark);}
+  .dl-btn.disabled{background:#cbd5e1;pointer-events:none;}
+  .notice{font-size:13px;color:var(--ink-soft);background:var(--brand-soft);border-radius:10px;padding:12px 16px;margin-top:6px;}
+  footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:13px;text-align:center;padding:24px 0;}
+  footer strong{color:var(--ink);}
+  @media(max-width:640px){.hero h1{font-size:26px;}.dl-row{flex-wrap:wrap;}}
+</style>
+</head>
+<body>
+
+<div class="statusbar"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="logo">대한민국시도연구원협의회</span>
+    <h1>행정직 대상 생성형 AI 활용</h1>
+    <p>차시를 선택하면 강의안으로 이동합니다.</p>
+    <p class="meta">강사 <a href="https://koreaedu.oopy.io/kimssam" target="_blank" rel="noopener">김현경</a> · <a href="https://koreaedu.oopy.io/kimssam" target="_blank" rel="noopener">포트폴리오</a> · <a href="https://blog.naver.com/kimssamcoding" target="_blank" rel="noopener">블로그</a> · 2026. 9. 3.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section id="sessions">
+      <div class="sec-title">
+        <span class="dot"></span>
+        <h2>강의 목차</h2>
+        <span class="hint">카드를 누르면 해당 차시로 이동</span>
+      </div>
+      <div class="grid">
+        <a class="session-card" href="session_1.html">
+          <span class="badge">1차시</span>
+          <h3>생성형 AI가 바꾸는 행정 업무</h3>
+          <p class="desc">AI 발전 흐름과 한국 직장인 활용 현황, 생성형 AI의 원리와 질문 잘하는 법, 업무 활용 주의점</p>
+          <span class="go">강의안 보기</span>
+        </a>
+        <a class="session-card" href="session_2.html">
+          <span class="badge">2차시</span>
+          <h3>제미나이 기초 활용법</h3>
+          <p class="desc">모델 선택 기준, 커스텀 인스트럭션 설정문 2종, Canvas 보고서 생성, 이미지 생성 실습</p>
+          <span class="go">강의안 보기</span>
+        </a>
+        <a class="session-card" href="session_3.html">
+          <span class="badge">3차시</span>
+          <h3>GEM 활용 자동화</h3>
+          <p class="desc">프롬프트 생성 · 사주 컨설턴트 · 인포그래픽 GEM 3종의 시스템 프롬프트와 실습</p>
+          <span class="go">강의안 보기</span>
+        </a>
+        <a class="session-card" href="session_4.html">
+          <span class="badge">4차시</span>
+          <h3>제미나이 노트북 활용</h3>
+          <p class="desc">규정집을 올려 근거 조항 · 페이지까지 찾는 질의응답과 스튜디오 산출물 6종</p>
+          <span class="go">강의안 보기</span>
+        </a>
+        <a class="session-card" href="session_5.html">
+          <span class="badge">5차시</span>
+          <h3>AI로 보고서 작성하기 · 핵심 팁</h3>
+          <p class="desc">가이드 → 조사 → 작성 → 검토 4단계 프롬프트와 보고서를 발표 PPT로 바꾸는 법</p>
+          <span class="go">강의안 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="sec-title">
+        <span class="dot"></span>
+        <h2>강의 자료 다운로드</h2>
+      </div>
+      <div class="dl-group">
+        <div class="dl-row">
+          <span class="fname">📑 강의 자료 <span class="fmeta">1~5차시 강의 슬라이드 PDF</span></span>
+          <a class="dl-btn" href="#" target="_blank" rel="noopener">다운로드</a>
+        </div>
+        <div class="dl-row">
+          <span class="fname">🗂 실습 파일 <span class="fmeta">행정 규정집 예시 · 만세력</span></span>
+          <a class="dl-btn" href="#" target="_blank" rel="noopener">다운로드</a>
+        </div>
+      </div>
+      <p class="notice">※ 다운로드 버튼의 링크는 아직 연결되지 않았습니다. 노션 · 구글드라이브 공유 링크를 알려주시면 연결해 드립니다.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>대한민국시도연구원협의회 · 행정직 대상 생성형 AI 활용</strong> · 강사 김현경 &nbsp;|&nbsp; © 2026
+  </div>
+</footer>
+
+</body>
+</html>
