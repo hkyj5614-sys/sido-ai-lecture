@@ -72,6 +72,7 @@
   .guide img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;}
   .guide figcaption{font-size:13px;color:var(--ink-soft);margin-top:9px;line-height:1.6;}
   .guide figcaption b{color:var(--brand-dark);}
+  .attach{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:6px;padding:4px 10px;margin-right:8px;}
   @media(max-width:700px){.guide{grid-template-columns:1fr;}}
   .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
   /* 노트/경고/팁 */
@@ -282,11 +283,17 @@
       </div>
 
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ① — 원국 전체</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <div class="prompt-head"><span class="label">예시 프롬프트 ① — 캡처 이미지로 요청 <span class="attach">📎 이미지 첨부</span></span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>만세력에서 뽑은 원국 화면입니다. 여덟 글자를 먼저 읽어 확인해주고, 맞으면 해석해주세요.</pre>
+      </div>
+      <p class="muted" style="margin:-8px 0 16px;">↑ 이 문장을 붙여넣기 전에 <b>만세력 화면 캡처 이미지를 먼저 첨부</b>합니다. GEM이 여덟 글자를 읽어 되물어보면 확인해준 뒤 해석이 이어집니다.</p>
+
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">예시 프롬프트 ② — 원국 직접 입력</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
         <pre>년주 庚辰 / 월주 戊子 / 일주 甲子 / 시주 丁卯 입니다. 사주 봐주세요.</pre>
       </div>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ② — 시주 미상</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <div class="prompt-head"><span class="label">예시 프롬프트 ③ — 시주 미상</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
         <pre>庚辰 / 戊子 / 甲子 / 시주 미상 입니다. 저에게 맞는 일의 방향을 알고 싶습니다.</pre>
       </div>
 
