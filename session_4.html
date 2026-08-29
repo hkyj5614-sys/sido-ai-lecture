@@ -103,7 +103,27 @@
   #toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:#111827;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;}
   #toast.show{opacity:1;transform:translate(-50%,0);}
   @media(max-width:640px){.header h1{font-size:24px;}.card{padding:22px 18px;}:root{--nav-h:150px;}}
+
+  /* ===== 강의 투사용 화면 배율 ===== */
+  :root{--scale:1;}
+  @media(min-width:1500px){:root{--scale:1.15;}}
+  @media(min-width:1800px){:root{--scale:1.3;}}
+  html[data-scale="1"]{--scale:1;}
+  html[data-scale="2"]{--scale:1.15;}
+  html[data-scale="3"]{--scale:1.3;}
+  html[data-scale="4"]{--scale:1.45;}
+  html[data-scale="5"]{--scale:1.6;}
+  main{zoom:var(--scale);}
+  .scaler{position:fixed;right:16px;bottom:16px;z-index:80;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:999px;padding:5px 7px;box-shadow:0 4px 18px rgba(0,0,0,.14);backdrop-filter:blur(6px);}
+  .scaler button{font-family:inherit;cursor:pointer;width:30px;height:30px;line-height:1;font-size:17px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:50%;transition:.15s;}
+  .scaler button:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .scaler .lv{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft);min-width:46px;text-align:center;user-select:none;}
+  @media print{.scaler{display:none;}main{zoom:1;}}
 </style>
+<script>
+  /* 저장된 배율을 그리기 전에 적용 (깜빡임 방지) */
+  try{var _s=localStorage.getItem('lectureScale'); if(_s)document.documentElement.setAttribute('data-scale',_s);}catch(e){}
+</script>
 </head>
 <body>
 
@@ -342,6 +362,42 @@
       document.body.removeChild(ta);
     }
   }
+</script>
+<div class="scaler" role="group" aria-label="화면 배율">
+  <button type="button" onclick="scaleStep(-1)" title="글자 작게" aria-label="글자 작게">&minus;</button>
+  <span class="lv" id="scaleLv" onclick="scaleReset()" title="클릭하면 자동으로 되돌립니다">자동</span>
+  <button type="button" onclick="scaleStep(1)" title="글자 크게" aria-label="글자 크게">+</button>
+</div>
+
+<script>
+  /* 화면 배율 — 강의장 좌석 거리에 맞춰 조절 */
+  (function(){
+    var KEY='lectureScale', el=document.documentElement, LV=['100%','115%','130%','145%','160%'];
+    function paint(){
+      var v=el.getAttribute('data-scale');
+      document.getElementById('scaleLv').textContent = v ? LV[v-1] : '자동';
+    }
+    window.scaleStep=function(d){
+      var cur=parseInt(el.getAttribute('data-scale')||'0',10);
+      if(!cur){var w=window.innerWidth; cur = w>=1800?3:(w>=1500?2:1);}
+      var n=Math.min(5,Math.max(1,cur+d));
+      el.setAttribute('data-scale',n);
+      try{localStorage.setItem(KEY,n);}catch(e){}
+      paint();
+    };
+    window.scaleReset=function(){
+      el.removeAttribute('data-scale');
+      try{localStorage.removeItem(KEY);}catch(e){}
+      paint();
+    };
+    document.addEventListener('keydown',function(e){
+      if(e.target.matches('input,textarea')) return;
+      if(e.key==='+'||e.key==='='){scaleStep(1);}
+      else if(e.key==='-'||e.key==='_'){scaleStep(-1);}
+      else if(e.key==='0'){scaleReset();}
+    });
+    paint();
+  })();
 </script>
 </body>
 </html>
