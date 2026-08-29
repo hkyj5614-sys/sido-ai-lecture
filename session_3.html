@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>3차시 · GEM 활용 자동화 · 대한민국시도연구원협의회</title>
+<title>3차시 · 제미나이 노트북 활용 · 대한민국시도연구원협의회</title>
 <style>
   /* ===== 디자인 토큰 (색은 여기서만 바꾼다) ===== */
   :root{
@@ -69,17 +69,11 @@
   .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
   .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
   .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
-  .linkrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;}
-  .linkrow a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--brand-dark);background:#fff;border:1px solid #cfe0f4;border-radius:7px;padding:6px 13px;transition:.15s;}
-  .linkrow a:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
-  .linkrow a::after{content:" ↗";font-size:11px;opacity:.65;}
-  .guide{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;align-items:start;margin:16px 0 4px;}
-  .guide figure{margin:0;}
-  .guide img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;}
-  .guide figcaption{font-size:13px;color:var(--ink-soft);margin-top:9px;line-height:1.6;}
-  .guide figcaption b{color:var(--brand-dark);}
-  .attach{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:6px;padding:4px 10px;margin-right:8px;}
-  @media(max-width:700px){.guide{grid-template-columns:1fr;}}
+  .dl{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin:16px 0;box-shadow:var(--shadow);}
+  .dl .fname{font-size:14.5px;font-weight:700;}
+  .dl .fname .fmeta{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+  .dl-btn{flex-shrink:0;text-decoration:none;font-size:13px;font-weight:600;color:#fff;background:var(--brand);border-radius:7px;padding:8px 16px;transition:.15s;white-space:nowrap;}
+  .dl-btn:hover{background:var(--brand-dark);}
   .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
   /* 노트/경고/팁 */
   .box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;}
@@ -145,8 +139,8 @@
   <div class="wrap">
     <span class="logo">대한민국시도연구원협의회</span>
     <p class="eyebrow">행정직 대상 생성형 AI 활용 · 3차시 · 강사 김현경</p>
-    <h1>GEM 활용 자동화</h1>
-    <p class="subtitle">한 번 만들어 두면 클릭 한 번으로 끝나는 나만의 AI 비서</p>
+    <h1>제미나이 노트북 활용</h1>
+    <p class="subtitle">규정 · 매뉴얼을 근거 조항까지 찾아주는 도우미</p>
     <span class="guide">💡 실습 프롬프트는 복사 버튼으로 붙여넣으세요</span>
   </div>
 </header>
@@ -160,19 +154,18 @@
       <a class="nav-btn" href="session_2.html">2차시</a>
       <a class="nav-btn active" href="session_3.html">3차시</a>
       <a class="nav-btn" href="session_4.html">4차시</a>
-      <a class="nav-btn" href="session_5.html">5차시</a>
       <span class="nav-spacer"></span>
-      <a class="tool-btn" href="https://gemini.google.com/gems/view" target="_blank" rel="noopener">제미나이 GEM</a>
-      <a class="tool-btn alt" href="https://daysaju.com/manseryeok" target="_blank" rel="noopener">만세력</a>
+      <a class="tool-btn" href="https://notebooklm.google.com" target="_blank" rel="noopener">제미나이 노트북</a>
     </div>
     <div class="nav-row sub">
       <span class="nav-label">바로가기</span>
-      <a class="anchor" href="#s1">일반챗 vs GEM</a>
-      <a class="anchor" href="#s2">프롬프트 생성 GEM</a>
-      <a class="anchor" href="#s3">테스트</a>
-      <a class="anchor" href="#s4">사주 컨설턴트 GEM</a>
-      <a class="anchor" href="#s5">인포그래픽 GEM</a>
-      <a class="anchor" href="#s6">마무리</a>
+      <a class="anchor" href="#s1">노트북이란</a>
+      <a class="anchor" href="#s2">시뮬레이션</a>
+      <a class="anchor" href="#s3">자료 준비</a>
+      <a class="anchor" href="#s4">요약 · 질의응답</a>
+      <a class="anchor" href="#s5">교차 확인</a>
+      <a class="anchor" href="#s6">스튜디오 6종</a>
+      <a class="anchor" href="#s7">마무리</a>
     </div>
   </div>
 </nav>
@@ -181,200 +174,169 @@
   <div class="wrap">
 
     <section class="card" id="s1">
-      <h2><span class="num">01</span>일반 챗 vs GEM</h2>
-      <p class="lead">반복 업무를 1초로 — 나만의 맞춤형 AI 비서를 만듭니다.</p>
+      <h2><span class="num">01</span>제미나이 노트북이란</h2>
+      <p class="lead">내가 올린 자료만 보고, 출처 페이지를 달아 답하는 AI입니다.</p>
+      <div class="grid3">
+        <div class="mcard"><div class="top"><b>자료 기반</b></div><div class="body">올린 규정집 안에서만 답변</div></div>
+        <div class="mcard"><div class="top"><b>근거 인용</b></div><div class="body">조항 · 페이지 자동 표시</div></div>
+        <div class="mcard"><div class="top"><b>환각 최소</b></div><div class="body">지어내지 않아 규정 업무에 안전</div></div>
+      </div>
       <table class="table">
-        <thead><tr><th>구분</th><th>일반 챗</th><th>GEM</th></tr></thead>
+        <thead><tr><th>구분</th><th>ChatGPT · Gemini</th><th>제미나이 노트북</th></tr></thead>
         <tbody>
-          <tr><td><strong>사용 방식</strong></td><td>매번 새 프롬프트 입력</td><td>한 번 등록 → 클릭 호출</td></tr>
-          <tr><td><strong>역할 설정</strong></td><td>역할을 매번 다시 설명</td><td>역할 · 말투 · 형식 영구 저장</td></tr>
-          <tr><td><strong>성격</strong></td><td>임시 직원 — 일회성</td><td>정규직 — 부서 공유 가능</td></tr>
+          <tr><td><strong>답변 범위</strong></td><td>인터넷 전체에서 답변</td><td>내 자료 안에서만 답변</td></tr>
+          <tr><td><strong>환각</strong></td><td>위험 있음</td><td>최소화</td></tr>
+          <tr><td><strong>출처</strong></td><td>불명확</td><td>페이지 인용 자동</td></tr>
         </tbody>
       </table>
     </section>
 
     <section class="card" id="s2">
-      <span class="phase">GEM 1</span>
-      <h2><span class="num">02</span>프롬프트 생성 GEM — 마스터 키</h2>
-      <p class="lead">프롬프트가 어려운 게 아니라, 잘 쓰는 사람에게 맡기는 시대입니다.</p>
-      <div class="grid3">
-        <div class="mcard"><div class="top"><b>두루뭉술 → 완성형</b></div><div class="body">「보고서 좀 잘 써줘」를 역할 · 맥락 · 지시 · 형식 갖춘 프롬프트로 자동 변환</div></div>
-        <div class="mcard"><div class="top"><b>다른 GEM의 출발점</b></div><div class="body">새 GEM을 만들 때 시스템 프롬프트 자체를 이 GEM이 짜준다</div></div>
-        <div class="mcard"><div class="top"><b>초보자도 고수처럼</b></div><div class="body">프롬프트가 어렵다고 포기했던 직원도 바로 활용 가능</div></div>
-      </div>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">GEM 시스템 프롬프트 · 프롬프트 생성</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>너는 세계 최고 수준의 프롬프트 엔지니어다.
-
-목표
-사용자의 대략적 요청을 분석해 AI로부터 최고 품질 결과를 얻도록 전문 프롬프트로 재구성한다.
-
-작업 절차
-① 요청 분석 ② 목적 · 산출물 추론 ③ 부족한 조건 · 맥락 · 제약 보완 ④ 구조화 ⑤ 품질 조건 추가 ⑥ 역할 · 배경 · 작업 · 제약 · 출력형식 정의
-
-출력 형식
-1. 개선된 프롬프트(즉시 복사 사용) 2. 보강한 요소 3. 더 좋은 결과를 위한 추가 정보
-
-추가 규칙
-원래 의도는 변경하지 않는다 · 임의로 사실을 만들지 않는다 · 요청이 모호하면 역질문 3개 이내를 먼저 제안 · 항상 '최종 사용 가능 버전'으로 작성</pre>
-      </div>
+      <h2><span class="num">02</span>오늘의 시뮬레이션</h2>
+      <div class="box note"><span class="box-title">📌 상황</span>신규 담당자가 출장비 · 복무 · 계약 규정을 매번 물어보고, 규정집은 수백 쪽이라 필요한 조항을 찾기 번거롭다.</div>
+      <div class="box tip"><span class="box-title">💡 목표</span>규정집을 통째로 올려두고, 질문하면 근거 조항 · 페이지까지 바로 찾아주는 '규정 도우미'를 만든다.</div>
+      <p class="muted">핵심 — 인터넷이 아니라 '우리 규정' 안에서, 출처를 달아 답합니다.</p>
     </section>
 
     <section class="card" id="s3">
-      <span class="phase">실습</span>
-      <h2><span class="num">03</span>프롬프트 생성 GEM — 테스트</h2>
-      <p class="lead">하려는 일만 말하고 프롬프트 작성은 GEM에 맡깁니다. (행정 실무 예시)</p>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">① 두루뭉술 → 완성형</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>정책세미나 결과보고서를 작성하려고 해. 결과가 잘 나오도록 프롬프트 작성해줘.</pre>
+      <h2><span class="num">03</span>실습 자료 준비</h2>
+      <p class="lead">회원 기관(각 시 · 도 연구원) 내부 문서를 업로드합니다. (개인정보 · 대외비 제외)</p>
+      <table class="table">
+        <thead><tr><th>문서</th><th>포함 내용</th></tr></thead>
+        <tbody>
+          <tr><td><strong>복무 규정</strong></td><td>근무 · 유연근무 · 연가 · 병가</td></tr>
+          <tr><td><strong>여비(출장) 규정</strong></td><td>운임 · 숙박 · 일비 · 정산</td></tr>
+          <tr><td><strong>회계 · 예산 지침</strong></td><td>지출 절차 · 법인카드</td></tr>
+          <tr><td><strong>계약 · 물품 매뉴얼</strong></td><td>계약 방법 · 구매 서류</td></tr>
+        </tbody>
+      </table>
+      <div class="box note"><span class="box-title">📌 실습 파일</span>실습용 예시 규정집(가상)을 제공합니다 — 복무 · 여비 · 회계 · 계약 4장, 조항 · 페이지 포함. 이 PDF를 노트북에 올려 바로 실습하세요.</div>
+      <div class="dl">
+        <span class="fname">🗂 실습용 예시 규정집 (가상)<span class="fmeta">PDF · 복무 · 여비 · 회계 · 계약 4장</span></span>
+        <a class="dl-btn" href="practice_regulations.pdf" download="실습_행정규정집_예시.pdf">⬇ 다운로드</a>
       </div>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">② 막연한 한 줄 (되묻는지 확인)</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>협의회 홍보 좀 하려고 하는데 프롬프트 짜줘.</pre>
-      </div>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">③ 다른 GEM의 출발점</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>회의록을 개조식으로 정리하는 GEM을 만들려고 해. 그 GEM에 넣을 시스템 프롬프트를 짜줘.</pre>
-      </div>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">④ 내 업무로</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>직원 대상 교육 안내문을 작성하려고 해. 구조화된 프롬프트 작성해줘.</pre>
-      </div>
-      <div class="box note"><span class="box-title">📌 확인 포인트</span>① 역할이 붙었는가 ② 빠진 조건을 되물었는가 ③ 출력 형식이 명시됐는가 ④ 바로 복사 가능한가</div>
     </section>
 
     <section class="card" id="s4">
-      <span class="phase">GEM 2</span>
-      <h2><span class="num">04</span>사주 컨설턴트 GEM — 역할을 좁힌 전문 GEM</h2>
-      <p class="lead">계산은 만세력 사이트에, 해석은 GEM에 맡깁니다. AI가 틀리기 쉬운 일은 아예 시키지 않는 것이 정확도를 올리는 방법입니다.</p>
-
-      <div class="box note"><span class="box-title">🔗 먼저, 원국(여덟 글자)을 확인하세요</span>
-        이 GEM은 생년월일로 <b>계산하지 않고 해석만</b> 합니다. 아래 만세력 사이트에서 <b>년주 · 월주 · 일주 · 시주</b>를 뽑아 GEM에 붙여넣으세요. <b>화면을 캡처해서 이미지로 올려도</b> 됩니다.
-        <div class="linkrow">
-          <a href="https://daysaju.com/manseryeok" target="_blank" rel="noopener">데이사주 만세력</a>
-        </div>
-        <div class="guide">
-          <figure>
-            <img src="guide_manseryeok_1.png" alt="데이사주 만세력 계산기 첫 화면 — 만세력 계산하기 버튼">
-            <figcaption><b>① 원국 뽑기</b><br>데이사주 만세력 접속 → <b>만세력 계산하기</b> → 생년월일 · 태어난 시 입력</figcaption>
-          </figure>
-          <figure>
-            <img src="guide_manseryeok_2.png" alt="계산 결과로 나온 원국 여덟 글자">
-            <figcaption><b>② 이 화면을 GEM에 주기</b><br>캡처해서 이미지로 올리거나, 여덟 글자를 그대로 입력합니다.<br>열 순서는 <b>왼쪽부터 시주 · 일주 · 월주 · 년주</b> — 위 칸이 천간, 아래 칸이 지지입니다.</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <h3>휴대폰에서 화면 캡처하는 법</h3>
-      <div class="grid3">
-        <div class="mcard">
-          <div class="top"><b>아이폰</b><span class="en">iPhone</span></div>
-          <div class="body">
-            <p><b>측면 버튼 + 볼륨 올리기</b>를 동시에 짧게 누릅니다.<br>홈 버튼이 있는 모델은 <b>홈 버튼 + 측면 버튼</b>.</p>
-            <p>왼쪽 아래 미리보기를 눌러 <b>필요한 부분만 잘라내기</b> → 완료 → <b>사진</b> 앱에 저장.</p>
-          </div>
-        </div>
-        <div class="mcard">
-          <div class="top"><b>갤럭시</b><span class="en">Galaxy</span></div>
-          <div class="body">
-            <p><b>전원 버튼 + 볼륨 내리기</b>를 동시에 짧게 누릅니다.<br>손날을 화면 위로 <b>쓸어도</b> 캡처됩니다.</p>
-            <p>아래 미리보기의 <b>자르기</b>로 필요한 부분만 남기기 → <b>갤러리</b>에 저장.</p>
-          </div>
-        </div>
-      </div>
-      <div class="box note"><span class="box-title">📱 캡처를 제미나이 앱에 올리기</span>입력창의 <b>＋</b>(또는 사진 아이콘) → <b>갤러리 · 사진</b>에서 캡처 선택 → 아래 <b>예시 프롬프트 ①</b>을 붙여넣고 전송합니다. <b>여덟 글자가 크고 또렷하게</b> 보이도록 잘라서 올리면 AI가 한자를 훨씬 정확하게 읽습니다.</div>
-
+      <span class="phase">실습 ① ②</span>
+      <h2><span class="num">04</span>규정 요약 &amp; 근거 질의응답</h2>
+      <p class="lead">답변에 붙은 인용을 클릭하면 원문 페이지로 이동해 바로 확인할 수 있습니다.</p>
+      <h3>① 규정 요약 (전체 파악)</h3>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">GEM 시스템 프롬프트 · 사주 컨설턴트</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>[역할] 원국(여덟 글자)을 쉽게 풀어주는 명리 해석 도우미.
-답변 맨 앞에 "사주는 전통 해석이며 과학적 예측이 아닙니다"를 한 줄 넣는다.
-
-[핵심 규칙]
-- 생년월일로 원국을 계산·추측하지 않는다.
-- 사용자가 준 원국(년·월·일·시주)만 근거로 해석한다.
-
-[입력]
-- 원국(여덟 글자)만 받는다.
-- 이미지(캡처)로 주면 여덟 글자를 먼저 읽어 확인받은 뒤 해석한다.
-- 생년월일만 주면 만세력 계산기에서 원국을 뽑아 알려달라고 안내한다.
-- 시주를 모르면 '시주 미상'으로 보고 시주 해석만 생략한다.
-
-[출력 순서]
-원국 확인 → 성격 → 오행 균형 → 직업·재능 → 재물 성향 → 대운 흐름 → 생활 조언
-
-[규칙]
-- 어려운 한자는 쉬운 말을 함께 쓴다.
-- "그렇다" 대신 "~한 경향이 있다"로 쓴다.
-- 부정적 내용은 보완 방향을 함께 준다.
-- 질병·수명·투자·결혼 시기 등은 단정해 예언하지 않는다.
-- 모르면 지어내지 말고 "확인이 필요합니다"라고 한다.</pre>
+        <div class="prompt-head"><span class="label">규정 요약</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>올린 규정집 · 매뉴얼의 핵심을 항목별로 요약해줘. 각 항목에 근거 조항 · 페이지도 표시해줘.</pre>
       </div>
-
+      <h3>② 근거 질의응답</h3>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ① — 캡처 이미지로 요청 <span class="attach">📎 이미지 첨부</span></span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>만세력에서 뽑은 원국 화면이야. 여덟 글자를 먼저 읽어서 확인해주고, 맞으면 해석해줘.</pre>
+        <div class="prompt-head"><span class="label">출장비 한도 · 정산</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>국내 출장비 지급 한도와 정산 절차를 알려줘. 근거 조항 · 페이지도 표시해줘.</pre>
       </div>
-      <p class="muted" style="margin:-8px 0 16px;">↑ 이 문장을 붙여넣기 전에 <b>만세력 화면 캡처 이미지를 먼저 첨부</b>합니다. GEM이 여덟 글자를 읽어 되물어보면 확인해준 뒤 해석이 이어집니다.</p>
-
+      <p class="answer">기대 답변 — <b>제12~15조</b></p>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ② — 원국 직접 입력</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>년주 庚辰 / 월주 戊子 / 일주 甲子 / 시주 丁卯. 사주 봐줘.</pre>
+        <div class="prompt-head"><span class="label">연가 · 병가 기준</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>연가 · 병가 사용 기준과 신청 절차를 알려줘. 근거 조항도 표시해줘.</pre>
       </div>
+      <p class="answer">기대 답변 — <b>제6 · 7조</b></p>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ③ — 시주 미상</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>庚辰 / 戊子 / 甲子 / 시주 미상. 나한테 맞는 일의 방향 알려줘.</pre>
+        <div class="prompt-head"><span class="label">물품 구매 계약</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>300만 원 이하 물품 구매 시 계약 방법과 필요한 서류를 알려줘.</pre>
       </div>
-
-      <div class="box tip"><span class="box-title">💡 여기서 배울 점</span>AI는 <b>날짜 계산·간지 변환에 자주 틀립니다</b>. 그래서 "계산하지 않는다"를 규칙으로 못 박고, 잘하는 일(해석·설명)만 맡겼습니다. <b>업무 GEM도 같습니다</b> — 수치 계산은 엑셀에, 정리·초안은 AI에 나누면 결과가 훨씬 안정적입니다.</div>
+      <p class="answer">기대 답변 — <b>제19 · 20조</b></p>
     </section>
 
     <section class="card" id="s5">
-      <span class="phase">GEM 3</span>
-      <h2><span class="num">05</span>인포그래픽 생성 GEM</h2>
-      <p class="lead">자료(수치)를 주면 보고서용 인포그래픽을 자동 생성합니다. 표를 함께 붙여넣어야 만들어집니다.</p>
+      <span class="phase">실습 ③ ④</span>
+      <h2><span class="num">05</span>교차 확인 &amp; 상황 적용</h2>
+      <h3>③ 규정 간 상충 · 중복 점검</h3>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">GEM 시스템 프롬프트 · 인포그래픽</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>자료를 주면 보고서용 인포그래픽으로. 불필요한 텍스트 제외, 수치 강조, 신뢰감 있는 블루 테마로 깔끔하게 생성해줘.</pre>
+        <div class="prompt-head"><span class="label">상충 · 중복 점검</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>복무 규정과 출장 규정에서 서로 상충되거나 중복되는 내용이 있으면 찾아 표시해줘.</pre>
       </div>
-      <h3>예시 A · 지역 비교 (순위 강조)</h3>
+      <p class="answer">활용 — <b>사람이 놓치기 쉬운 규정 간 충돌을 자동 점검</b></p>
+      <h3>④ 실제 업무 상황에 대입</h3>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">요청 + 표를 함께 붙여넣기</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>인구 상위 2개 구 강조, 청년 비중 최고 구는 배지로. 블루 테마.
-
-구 | 인구 | 청년 | 1인가구
-유성구 | 36.0만 | 28% | 34%
-서구 | 47.5만 | 24% | 31%
-중구 | 22.8만 | 21% | 38%
-동구 | 21.5만 | 20% | 36%
-대덕구 | 16.8만 | 22% | 33%</pre>
+        <div class="prompt-head"><span class="label">출장비 청구 상황 적용</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>직원이 1박 2일 세종 출장 후 교통 · 숙박비를 청구하려 해.
+우리 규정상 지급 한도와 필요한 증빙을 근거 조항과 함께 정리해줘.</pre>
       </div>
-      <h3>예시 B · 연도별 추이 (트렌드)</h3>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">요청 + 표를 함께 붙여넣기</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>막대 + 꺾은선으로. 참석 최다 연도 강조, 5년 총계 큰 숫자로.
-
-연도 | 개최 건수 | 참석자 수
-2021 | 8건 | 620명
-2022 | 11건 | 910명
-2023 | 13건 | 1,180명
-2024 | 12건 | 1,050명
-2025 | 15건 | 1,420명</pre>
-      </div>
+      <p class="answer">기대 답변 — <b>숙박 제13조 · 증빙 제15조</b></p>
     </section>
 
     <section class="card" id="s6">
-      <h2><span class="num">06</span>정리 — 3가지 GEM</h2>
-      <ol class="steps">
-        <li><b>프롬프트 생성 GEM</b><span>모든 GEM의 마스터 키 — 요청을 완성형 프롬프트로</span></li>
-        <li><b>사주 컨설턴트 GEM</b><span>입력과 역할을 좁혀 정확도를 높이는 GEM의 예시</span></li>
-        <li><b>인포그래픽 GEM</b><span>표 · 수치 자료 → 보고서용 시각화 자동 생성</span></li>
-      </ol>
+      <span class="phase">스튜디오</span>
+      <h2><span class="num">06</span>스튜디오 6종 — 같은 자료로 6가지 산출물</h2>
+      <p class="lead">규정집 하나만 올려두면 조회부터 안내 보고서 · 교육 슬라이드까지 자동으로 만들어집니다.</p>
+
+      <h3>① 보고서 — 신규 입사자용 안내</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 보고서</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집을 근거로 '신규 입사자용 복무 · 여비 안내 보고서' 초안을 작성해줘.
+
+구성 :
+1. 근무시간 · 유연근무 2. 연가 · 병가 · 특별휴가
+3. 출장 신청 · 정산 절차 4. 자주 하는 실수
+
+개조식 문어체로 쓰고, 각 항목에 근거 조항 · 페이지도 표시해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>내부 공지 · 신규자 배포용 안내 보고서로 바로 사용</b></p>
+
+      <h3>② 슬라이드 — 오리엔테이션 발표자료</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 슬라이드</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>위 안내 내용을 신규 직원 오리엔테이션용 발표 슬라이드 10장으로 만들어줘.
+
+구성 : 표지 · 근무시간 · 유연근무 · 연가 · 병가 · 특별휴가 · 출장 신청 절차 · 출장비 한도 · 계약 · 물품 구매 · 자주 하는 실수 · 문의처
+
+[디자인] 흰 배경 · 포인트 색 파랑 1가지 · 이모지 금지 · 슬라이드마다 핵심 메시지 1개 · 제목은 좌상단 고정.</pre>
+      </div>
+      <p class="answer">활용 — <b>규정 교육 · 오리엔테이션 발표자료로 바로 사용</b></p>
+
+      <h3>③ 마인드맵 — 규정 체계 한눈에</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 마인드맵</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집 전체 구조를 마인드맵으로 정리해줘. 중심은 '행정 규정', 가지는 복무 · 여비 · 회계 · 계약 4개, 각 가지 아래에 핵심 조항을 배치해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>규정집 전체 체계 · 연결관계를 한눈에 파악</b></p>
+
+      <h3>④ 신규자 FAQ</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · FAQ</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집으로 신규 담당자가 자주 묻는 질문 10개와 답변을 FAQ 형식으로 만들어줘. 각 답변에 근거 조항 · 페이지도 표시해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>신규자 안내 · 인수인계 문서로 바로 사용</b></p>
+
+      <h3>⑤ 업무 체크리스트</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 체크리스트</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>출장 정산 처리 절차를 규정 순서대로 체크리스트로 만들어줘. 각 단계에 필요한 증빙과 근거 조항도 함께 표시해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>실무 처리 누락 방지 · 업무 표준화</b></p>
+
+      <h3>⑥ 오디오 요약</h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">스튜디오 · 오디오 개요</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+<pre>이 규정집의 복무 · 여비 핵심을 신규 직원이 이동 중에 들을 수 있는 3분 분량 개요로 정리해줘.</pre>
+      </div>
+      <p class="answer">활용 — <b>이동 중 학습 · 사전 브리핑</b></p>
+    </section>
+
+    <section class="card" id="s7">
+      <h2><span class="num">07</span>활용 &amp; 주의</h2>
+      <div class="grid3">
+        <div class="mcard"><div class="top"><b>규정 · 지침 빠른 조회</b></div><div class="body">수백 쪽에서 필요한 조항만</div></div>
+        <div class="mcard"><div class="top"><b>여러 규정 한 번에 비교</b></div><div class="body">상충 · 중복 자동 점검</div></div>
+        <div class="mcard"><div class="top"><b>신규 담당자 인수인계</b></div><div class="body">FAQ · 체크리스트 자동 생성</div></div>
+        <div class="mcard"><div class="top"><b>감사 대비 근거 확인</b></div><div class="body">조항 · 페이지 인용 확보</div></div>
+      </div>
+      <div class="box warn"><span class="box-title">⚠ 주의</span>
+        개인정보 · 대외비 문서는 업로드 금지 · 답변의 근거 페이지를 반드시 확인 · 공식 처리 시 원문 규정 재확인
+      </div>
       <ul class="checklist">
-        <li><b>GEM을 하나 이상 만들었는가</b> — <span class="ex">역할 · 지시 · 출력 형식을 시스템 프롬프트에 저장</span></li>
-        <li><b>지식 파일을 올려봤는가</b> — <span class="ex">규정집 · 매뉴얼 · 업무 지침 등</span></li>
-        <li><b>부서 공유를 고려했는가</b> — <span class="ex">같은 업무를 하는 동료와 GEM 공유</span></li>
+        <li><b>규정집을 업로드했는가</b> — <span class="ex">개인정보 · 대외비 제외</span></li>
+        <li><b>인용 페이지를 눌러 확인했는가</b> — <span class="ex">답변 옆 인용 → 원문 페이지</span></li>
+        <li><b>스튜디오 산출물을 하나 만들었는가</b> — <span class="ex">보고서 · 슬라이드 · FAQ 중 택 1</span></li>
       </ul>
-      <div class="box note"><span class="box-title">📌 다음 단계</span>4차시에서 제미나이 노트북으로 규정 · 매뉴얼을 근거 조항까지 찾아줍니다.</div>
+      <div class="box note"><span class="box-title">📌 다음 단계</span>4차시에서 보고서를 4단계로 나눠 쓰고 PPT까지 만듭니다.</div>
     </section>
 
   </div>
@@ -382,7 +344,7 @@
 
 <footer>
   <div class="wrap">
-    <strong>대한민국시도연구원협의회 · GEM 활용 자동화</strong> · 3차시 강의안 &nbsp;|&nbsp; 강사 김현경 &nbsp;|&nbsp; © 2026
+    <strong>대한민국시도연구원협의회 · 제미나이 노트북 활용</strong> · 3차시 강의안 &nbsp;|&nbsp; 강사 김현경 &nbsp;|&nbsp; © 2026
   </div>
 </footer>
 

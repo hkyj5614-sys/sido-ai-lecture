@@ -1,3 +1,10 @@
 .DS_Store
 실습_*.pdf
 *.mov
+
+# 로컬 전용 강의안 (배포하지 않음)
+생성AI이해.html
+video_kimwonhoon_ai.mp4
+video_kimwonhoon_ai_poster.jpg
+video_pd_sucheop.mp4
+video_pd_sucheop_poster.jpg
