@@ -63,6 +63,11 @@
   .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
   .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
   .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
+  .dl{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin:16px 0;box-shadow:var(--shadow);}
+  .dl .fname{font-size:14.5px;font-weight:700;}
+  .dl .fname .fmeta{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+  .dl-btn{flex-shrink:0;text-decoration:none;font-size:13px;font-weight:600;color:#fff;background:var(--brand);border-radius:7px;padding:8px 16px;transition:.15s;white-space:nowrap;}
+  .dl-btn:hover{background:var(--brand-dark);}
   .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
   /* 노트/경고/팁 */
   .box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;}
@@ -179,6 +184,10 @@
         </tbody>
       </table>
       <div class="box note"><span class="box-title">📌 실습 파일</span>실습용 예시 규정집(가상)을 제공합니다 — 복무 · 여비 · 회계 · 계약 4장, 조항 · 페이지 포함. 이 PDF를 노트북에 올려 바로 실습하세요.</div>
+      <div class="dl">
+        <span class="fname">🗂 실습용 예시 규정집 (가상)<span class="fmeta">PDF · 복무 · 여비 · 회계 · 계약 4장</span></span>
+        <a class="dl-btn" href="practice_regulations.pdf" download="실습_행정규정집_예시.pdf">⬇ 다운로드</a>
+      </div>
     </section>
 
     <section class="card" id="s4">
