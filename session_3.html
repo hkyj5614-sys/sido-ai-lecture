@@ -63,11 +63,10 @@
   .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
   .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
   .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
-  .dl{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin:16px 0;box-shadow:var(--shadow);}
-  .dl .fname{font-size:14.5px;font-weight:700;}
-  .dl .fname .fmeta{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
-  .dl-btn{flex-shrink:0;text-decoration:none;font-size:13px;font-weight:600;color:#fff;background:var(--brand);border-radius:7px;padding:8px 16px;transition:.15s;white-space:nowrap;}
-  .dl-btn:hover{background:var(--brand-dark);}
+  .linkrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;}
+  .linkrow a{text-decoration:none;font-size:13.5px;font-weight:600;color:var(--brand-dark);background:#fff;border:1px solid #cfe0f4;border-radius:7px;padding:6px 13px;transition:.15s;}
+  .linkrow a:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .linkrow a::after{content:" ↗";font-size:11px;opacity:.65;}
   .prompt pre{margin:0;padding:16px 18px;background:var(--code-bg);font-family:"SFMono-Regular",Consolas,"D2Coding","Menlo",monospace;font-size:13.5px;line-height:1.7;color:#111827;white-space:pre-wrap;word-break:break-word;}
   /* 노트/경고/팁 */
   .box{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;}
@@ -230,31 +229,65 @@
 
     <section class="card" id="s4">
       <span class="phase">GEM 2</span>
-      <h2><span class="num">04</span>사주 컨설턴트 GEM — 지식 기반 예시</h2>
-      <p class="lead">생년월일 · 성별만 입력하면 원국 · 성격 · 직업 · 대운을 분석 — 지식 파일을 올리면 정확도가 올라갑니다.</p>
+      <h2><span class="num">04</span>사주 컨설턴트 GEM — 역할을 좁힌 전문 GEM</h2>
+      <p class="lead">계산은 만세력 사이트에, 해석은 GEM에 맡깁니다. AI가 틀리기 쉬운 일은 아예 시키지 않는 것이 정확도를 올리는 방법입니다.</p>
+
+      <div class="box note"><span class="box-title">🔗 먼저, 원국(여덟 글자)을 확인하세요</span>
+        이 GEM은 생년월일로 <b>계산하지 않고 해석만</b> 합니다. 아래 만세력 사이트에서 <b>년주 · 월주 · 일주 · 시주</b>를 뽑아 GEM에 붙여넣으세요.
+        <div class="linkrow">
+          <a href="https://manseryeok.com/" target="_blank" rel="noopener">만세력닷컴</a>
+          <a href="https://daysaju.com/manseryeok" target="_blank" rel="noopener">데이사주 만세력</a>
+          <a href="https://sajumania.com/" target="_blank" rel="noopener">사주매니아</a>
+          <a href="https://pro.forceteller.com/" target="_blank" rel="noopener">포스텔러</a>
+        </div>
+      </div>
+
       <div class="prompt">
         <div class="prompt-head"><span class="label">GEM 시스템 프롬프트 · 사주 컨설턴트</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-<pre>[역할] 명리학 기반 AI 사주 상담가. 출생 정보로 사주팔자를 산출하고 성격 · 오행 · 직업 · 재물 · 대운을 쉽게 풀어준다. (과학적 예측이 아님을 한 줄로 밝힘)
+<pre>[역할]
+너는 사주 원국(여덟 글자)을 받아 쉽게 풀어주는 명리 해석 도우미다.
+답변 맨 앞에 "사주는 전통 명리학적 해석이며 과학적 미래 예측이 아닙니다"를 한 줄로 밝힌다.
 
-[입력] 필수 생년월일 · 성별 / 선택 태어난 시(없으면 '시간 미상'). 이미 준 정보는 다시 묻지 않고, 필수만 있으면 바로 결과.
+[가장 중요한 규칙 — 계산하지 않는다]
+· 생년월일로 원국을 직접 계산하거나 추측하지 않는다.
+· 해석은 사용자가 입력한 원국(년주·월주·일주·시주)만 근거로 한다.
 
-[출력 순서] 원국표 → 성격 · 기질 → 오행 균형 → 직업 · 재능 → 재물 성향 → 대운 흐름 → 생활 조언
+[입력 — 원국만 받는다]
+· 받는 값: 년주·월주·일주·시주 (예: 甲子 / 丁丑 / 癸酉 / 乙卯)
+· 사용자가 생년월일만 주면 원국을 계산하지 말고 이렇게 안내한다:
+  "이 도우미는 원국(여덟 글자)으로만 해석합니다.
+   만세력 계산기에서 년주·월주·일주·시주를 뽑아 알려주세요."
+· 시주를 모르면 '시주 미상'으로 보고 시주 관련 해석만 생략한다.
+· 이미 준 정보는 다시 묻지 않는다.
 
-[규칙] 어려운 한자는 쉬운 말 병기 · 부정적 내용은 보완 방향 함께 · '그렇다' 대신 '경향이 있다' · 질병 · 수명 · 투자 · 결혼 시기 단정 예언 금지</pre>
+[출력 순서]
+1) 받은 원국 확인 (입력값 그대로 다시 보여주기)
+2) 일간 중심 성격·기질
+3) 오행 균형 (강한/부족한 오행 + 보완 방향)
+4) 직업·재능 방향
+5) 재물 성향
+6) 대운·시기 흐름 (큰 방향 중심)
+7) 생활 조언
+
+[규칙]
+· 어려운 한자는 쉬운 말을 함께 쓴다. (예: 재성 → 재물운)
+· '그렇다'로 단정하지 말고 '~한 경향이 있다'로 쓴다.
+· 부정적인 내용은 반드시 보완·개선 방향을 함께 제시한다.
+· 질병·수명·사망, 투자 성공, 결혼·이혼 시기 등은 단정해서 예언하지 않는다.
+· 근거가 불확실하면 지어내지 말고 "일반적 경향입니다 / 확인이 필요합니다"로 표시한다.
+· 불안을 조성하지 않는다.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span class="label">예시 프롬프트 ① — 원국 전체</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>년주 乙丑 / 월주 戊寅 / 일주 庚午 / 시주 己卯 남자입니다. 사주 봐주세요.</pre>
       </div>
       <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ①</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>1985년 2월 3일 새벽 5시 20분 서울 출생 남자. 양력. 사주 봐줘.</pre>
+        <div class="prompt-head"><span class="label">예시 프롬프트 ② — 시주 미상</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
+        <pre>壬申 / 丁未 / 甲子 / 시주 미상 입니다. 저에게 맞는 일의 방향을 알고 싶습니다.</pre>
       </div>
-      <div class="prompt">
-        <div class="prompt-head"><span class="label">예시 프롬프트 ②</span><button class="copy-btn" onclick="copyPrompt(this)">복사</button></div>
-        <pre>92년 7월 24일생인데 내가 무슨 일에 맞는지 봐줘.</pre>
-      </div>
-      <div class="box tip"><span class="box-title">💡 지식(Knowledge) 활용</span>만세력 등 지식 파일을 GEM에 올리면 원국 정확도가 크게 올라갑니다. <b>지시사항 + 지식 파일 = 전문 비서형 GEM</b></div>
-      <div class="dl">
-        <span class="fname">🗂 실습용 만세력<span class="fmeta">PDF · GEM 지식 파일로 업로드해 사용</span></span>
-        <a class="dl-btn" href="practice_manseryeok.pdf" download="실습_만세력.pdf">⬇ 다운로드</a>
-      </div>
+
+      <div class="box tip"><span class="box-title">💡 여기서 배울 점</span>AI는 <b>날짜 계산·간지 변환에 자주 틀립니다</b>. 그래서 "계산하지 않는다"를 규칙으로 못 박고, 잘하는 일(해석·설명)만 맡겼습니다. <b>업무 GEM도 같습니다</b> — 수치 계산은 엑셀에, 정리·초안은 AI에 나누면 결과가 훨씬 안정적입니다.</div>
     </section>
 
     <section class="card" id="s5">
@@ -295,12 +328,12 @@
       <h2><span class="num">06</span>정리 — 3가지 GEM</h2>
       <ol class="steps">
         <li><b>프롬프트 생성 GEM</b><span>모든 GEM의 마스터 키 — 요청을 완성형 프롬프트로</span></li>
-        <li><b>사주 컨설턴트 GEM</b><span>지식(Knowledge) 기반 GEM의 정밀함을 보여주는 예시</span></li>
+        <li><b>사주 컨설턴트 GEM</b><span>입력과 역할을 좁혀 정확도를 높이는 GEM의 예시</span></li>
         <li><b>인포그래픽 GEM</b><span>표 · 수치 자료 → 보고서용 시각화 자동 생성</span></li>
       </ol>
       <ul class="checklist">
         <li><b>GEM을 하나 이상 만들었는가</b> — <span class="ex">역할 · 지시 · 출력 형식을 시스템 프롬프트에 저장</span></li>
-        <li><b>지식 파일을 올려봤는가</b> — <span class="ex">규정집 · 매뉴얼 · 만세력 등</span></li>
+        <li><b>지식 파일을 올려봤는가</b> — <span class="ex">규정집 · 매뉴얼 · 업무 지침 등</span></li>
         <li><b>부서 공유를 고려했는가</b> — <span class="ex">같은 업무를 하는 동료와 GEM 공유</span></li>
       </ul>
       <div class="box note"><span class="box-title">📌 다음 단계</span>4차시에서 제미나이 노트북으로 규정 · 매뉴얼을 근거 조항까지 찾아줍니다.</div>
