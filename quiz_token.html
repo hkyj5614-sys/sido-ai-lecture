@@ -96,8 +96,9 @@
   .turn{display:grid;grid-template-columns:clamp(58px,5.5vw,84px) 1fr;align-items:center;gap:clamp(10px,1.2vw,15px);}
   .turn span{font-size:clamp(12.5px,1.15vw,17px);font-weight:700;color:var(--ink-soft);}
   .turn .rows{display:flex;gap:4px;}
-  .turn i{display:block;width:clamp(11px,1.1vw,16px);height:clamp(14px,1.6vh,22px);border-radius:3px;background:var(--brand-line);}
-  .turn i.now{background:var(--brand-dark);}
+  .turn i{display:block;width:clamp(13px,1.3vw,19px);height:clamp(16px,1.8vh,26px);border-radius:3px;background:var(--brand-line);}
+  .turn i.in{background:var(--brand-dark);}
+  .turn i.out{background:var(--line);}
   .reading .cap{grid-column:1 / -1;font-size:clamp(11.5px,1.05vw,14px);color:var(--faint);}
 
   .foot{
@@ -139,25 +140,24 @@
     </div>
   </section>
 
-  <section class="quiz" data-answer="1">
+  <section class="quiz" data-answer="2">
     <span class="qno">문제 2</span>
-    <h1 class="ask">오래 주고받은 AI는 <em>맨 처음에 알려준 내용</em>을 어떻게 하고 있을까요?</h1>
+    <h1 class="ask">대화가 아주 길어졌을 때, <em>맨 처음에 나눈 이야기</em>는 어떻게 될까요?</h1>
     <ul class="options">
-      <li><button type="button" class="opt"><span class="key">1</span><span>중요한 내용만 요약해서 기억해 둔다</span><span class="mark" aria-hidden="true">✕</span></button></li>
-      <li><button type="button" class="opt"><span class="key">2</span><span>질문할 때마다 처음부터 전부 다시 읽는다</span><span class="mark" aria-hidden="true">✓</span></button></li>
-      <li><button type="button" class="opt"><span class="key">3</span><span>대화창을 닫기 전까지는 완벽하게 기억한다</span><span class="mark" aria-hidden="true">✕</span></button></li>
-      <li><button type="button" class="opt"><span class="key">4</span><span>오래된 내용은 지우고 최근 것만 남긴다</span><span class="mark" aria-hidden="true">✕</span></button></li>
+      <li><button type="button" class="opt"><span class="key">1</span><span>그대로 남아 있어 언제든 다시 꺼내 쓴다</span><span class="mark" aria-hidden="true">✕</span></button></li>
+      <li><button type="button" class="opt"><span class="key">2</span><span>중요한 것만 요약해서 따로 기억해 둔다</span><span class="mark" aria-hidden="true">✕</span></button></li>
+      <li><button type="button" class="opt"><span class="key">3</span><span>읽는 범위 밖으로 밀려나 잊어버린다</span><span class="mark" aria-hidden="true">✓</span></button></li>
+      <li><button type="button" class="opt"><span class="key">4</span><span>대화창을 닫기 전까지는 절대 사라지지 않는다</span><span class="mark" aria-hidden="true">✕</span></button></li>
     </ul>
     <div class="sol" hidden aria-live="polite">
-      <h2>정답은 <span>② 매번 처음부터 다시 읽는다</span>입니다.</h2>
-      <p>AI에게는 <b>기억이라는 것이 없습니다.</b> 질문을 받을 때마다 그때까지의 대화 전체를 처음부터 끝까지 다시 읽고 답합니다. 사람으로 치면 매번 회의록을 첫 장부터 다시 넘겨보는 셈입니다.</p>
+      <h2>정답은 <span>③ 밀려나 잊어버린다</span>입니다.</h2>
+      <p>AI가 <b>한 번에 읽을 수 있는 분량에는 한계가 있습니다.</b> 대화가 그 한도를 넘어서면 오래된 앞부분부터 차례로 읽는 범위 밖으로 밀려납니다. 밀려난 내용은 <b>없는 것과 같습니다.</b></p>
       <div class="reading">
-        <div class="turn"><span>1번째</span><div class="rows"><i class="now"></i></div></div>
-        <div class="turn"><span>5번째</span><div class="rows"><i></i><i></i><i></i><i></i><i class="now"></i></div></div>
-        <div class="turn"><span>10번째</span><div class="rows"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="now"></i></div></div>
-        <p class="cap">진한 칸이 이번 질문, 연한 칸이 매번 다시 읽는 앞부분입니다.</p>
+        <div class="turn"><span>짧은 대화</span><div class="rows"><i class="in"></i><i class="in"></i><i class="in"></i><i class="in"></i></div></div>
+        <div class="turn"><span>긴 대화</span><div class="rows"><i class="out"></i><i class="out"></i><i class="out"></i><i class="in"></i><i class="in"></i><i class="in"></i><i class="in"></i><i class="in"></i><i class="in"></i><i class="in"></i></div></div>
+        <p class="cap">진한 칸이 AI가 지금 읽고 있는 범위, 흐린 칸이 밀려나 읽지 못하는 앞부분입니다.</p>
       </div>
-      <p>그래서 대화가 길어질수록 <b>읽어야 할 양이 늘어 답이 느려지고</b>, 읽을 수 있는 한도를 넘으면 앞부분이 밀려나 <b>잊은 것처럼 답하기 시작합니다.</b> 기억력의 문제가 아니라 매번 다시 읽는 구조의 문제입니다.</p>
+      <p>그래서 처음에 정해둔 <b>말투 · 형식 · 조건을 슬며시 어기기 시작합니다.</b> "아까 말했잖아"가 통하지 않는 이유입니다. 기억을 잃은 것이 아니라, 애초에 그 부분을 <b>읽지 못하는 상태</b>가 된 것입니다.</p>
     </div>
   </section>
 
