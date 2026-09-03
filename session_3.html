@@ -69,6 +69,16 @@
   .prompt-head .label::before{content:"▶";color:var(--brand);font-size:10px;}
   .copy-btn{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;color:#fff;background:var(--brand);border:none;padding:6px 14px;border-radius:7px;transition:.15s;}
   .copy-btn:hover{background:var(--brand-dark);}.copy-btn.done{background:var(--ok);}
+  /* ===== 앱 설치 안내 ===== */
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0 6px;}
+  .app{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;}
+  .app:hover{border-color:var(--brand);transform:translateY(-2px);box-shadow:0 8px 20px rgba(91,143,214,.16);}
+  .app .os{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:11px;background:var(--brand-soft);color:var(--brand-dark);font-size:13px;font-weight:800;letter-spacing:-.3px;}
+  .app .txt{display:flex;flex-direction:column;line-height:1.35;}
+  .app .txt b{font-size:15px;}
+  .app .txt span{font-size:12.5px;color:var(--ink-soft);}
+  .app .go{margin-left:auto;font-size:13px;font-weight:700;color:var(--brand-dark);white-space:nowrap;}
+  .app .go::after{content:" ↗";font-size:10px;opacity:.85;}
   .dl{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin:16px 0;box-shadow:var(--shadow);}
   .dl .fname{font-size:14.5px;font-weight:700;}
   .dl .fname .fmeta{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
@@ -189,6 +199,21 @@
           <tr><td><strong>출처</strong></td><td>불명확</td><td>페이지 인용 자동</td></tr>
         </tbody>
       </table>
+      <h3>휴대폰에 앱 설치하기</h3>
+      <p class="muted" style="margin:0 0 4px;">스토어에서 <b>Gemini Notebook</b>(옛 이름 NotebookLM)으로 검색해도 됩니다. 오디오 개요를 이동 중에 들으려면 앱이 편합니다.</p>
+      <div class="apps">
+        <a class="app" href="https://apps.apple.com/kr/app/id6737527615" target="_blank" rel="noopener">
+          <span class="os">iOS</span>
+          <span class="txt"><b>아이폰 · 아이패드</b><span>App Store · iOS 17 이상</span></span>
+          <span class="go">설치</span>
+        </a>
+        <a class="app" href="https://play.google.com/store/apps/details?id=com.google.android.apps.labs.language.tailwind" target="_blank" rel="noopener">
+          <span class="os">Play</span>
+          <span class="txt"><b>갤럭시 · 안드로이드</b><span>Google Play</span></span>
+          <span class="go">설치</span>
+        </a>
+      </div>
+      <div class="box note"><span class="box-title">📌 PC와 함께 씁니다</span>같은 구글 계정으로 로그인하면 <b>PC에서 만든 노트북이 휴대폰에도 그대로</b> 보입니다. 자료 올리기 · 스튜디오 만들기는 PC가 편하고, <b>오디오 · 동영상 개요는 휴대폰에서</b> 듣고 보기 좋습니다.</div>
     </section>
 
     <section class="card" id="s2">
