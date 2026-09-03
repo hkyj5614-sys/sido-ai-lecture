@@ -50,6 +50,17 @@
   .qr-url:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
   @media(max-width:640px){.qr-card{flex-direction:column;text-align:center;gap:18px;padding:24px 20px;}.qr-code{width:200px;height:200px;}}
   @media print{.qr-card{break-inside:avoid;}}
+  .qr-code{position:relative;cursor:zoom-in;font-family:inherit;}
+  .qr-code:hover{border-color:var(--brand);box-shadow:0 6px 20px rgba(91,143,214,.20);}
+  .qr-code:focus-visible{outline:3px solid var(--brand);outline-offset:3px;}
+  .qr-zoom{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);white-space:nowrap;font-size:11.5px;font-weight:700;color:#fff;background:rgba(31,41,55,.86);border-radius:999px;padding:3px 10px;opacity:0;transition:.15s;pointer-events:none;}
+  .qr-code:hover .qr-zoom,.qr-code:focus-visible .qr-zoom{opacity:1;}
+  .qr-modal{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;background:rgba(17,24,39,.82);backdrop-filter:blur(4px);cursor:zoom-out;animation:qrIn .16s ease-out;}
+  @keyframes qrIn{from{opacity:0;}to{opacity:1;}}
+  .qr-modal .sheet{background:#fff;border-radius:20px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.4);}
+  .qr-modal svg{display:block;width:min(72vh,72vw,560px);height:auto;}
+  .qr-modal .cap{color:#fff;font-size:15px;font-weight:700;text-align:center;word-break:break-all;text-shadow:0 1px 3px rgba(0,0,0,.5);}
+  .qr-modal .cap small{display:block;font-weight:500;font-size:13px;opacity:.75;margin-top:6px;}
   footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:13px;text-align:center;padding:24px 0;}
   footer strong{color:var(--ink);}
   @media(max-width:640px){.hero h1{font-size:26px;}}
@@ -113,7 +124,7 @@
         <a class="session-card" href="session_3.html">
           <span class="badge">3차시</span>
           <h3>제미나이 노트북 활용</h3>
-          <p class="desc">규정집을 올려 근거 조항 · 페이지까지 찾는 질의응답과 스튜디오 산출물 6종</p>
+          <p class="desc">규정집을 올려 근거 조항 · 페이지까지 찾는 질의응답과 스튜디오 산출물 5종</p>
           <span class="go">강의안 보기</span>
         </a>
         <a class="session-card" href="session_4.html">
@@ -132,7 +143,7 @@
         <span class="hint">휴대폰 카메라로 QR을 비추세요</span>
       </div>
       <div class="qr-card">
-        <div class="qr-code"><svg class="qr-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" role="img" aria-label="강의 자료실 주소 QR 코드" shape-rendering="crispEdges"><path stroke="#1f2937" d="M2 2.5h7m2 0h3m1 0h1m2 0h9m1 0h7m-33 1h1m5 0h1m2 0h1m1 0h7m8 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m1 0h5m4 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h1m4 0h5m2 0h1m1 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m3 0h1m1 0h2m5 0h1m-22 1h1m1 0h5m2 0h2m1 0h2m1 0h1m1 0h1m8 0h5m-31 1h1m3 0h1m2 0h2m1 0h2m4 0h1m1 0h2m1 0h4m1 0h2m1 0h2m1 0h1m-33 1h1m2 0h4m5 0h1m2 0h1m2 0h1m1 0h3m1 0h3m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h5m2 0h4m-31 1h3m2 0h2m1 0h2m7 0h1m4 0h1m1 0h1m1 0h3m2 0h1m-32 1h5m1 0h11m2 0h2m1 0h1m2 0h2m1 0h4m-32 1h1m4 0h2m2 0h2m2 0h1m3 0h2m1 0h1m2 0h3m3 0h2m-32 1h1m1 0h2m4 0h1m2 0h3m2 0h1m2 0h4m2 0h6m-31 1h2m4 0h1m1 0h1m1 0h1m1 0h2m3 0h1m1 0h2m3 0h2m1 0h2m3 0h1m-32 1h2m1 0h2m2 0h1m2 0h1m1 0h1m3 0h1m1 0h2m1 0h2m2 0h2m1 0h2m1 0h1m-28 1h3m5 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h4m1 0h2m-32 1h1m1 0h1m1 0h1m2 0h2m3 0h3m2 0h2m2 0h2m1 0h1m2 0h6m-33 1h2m2 0h3m1 0h1m1 0h3m2 0h2m2 0h3m1 0h1m1 0h1m1 0h3m-30 1h1m2 0h3m5 0h1m1 0h3m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h1m-33 1h1m1 0h5m5 0h1m2 0h2m3 0h3m3 0h1m2 0h1m1 0h1m-32 1h1m2 0h3m1 0h2m1 0h3m2 0h1m2 0h1m2 0h1m1 0h2m2 0h1m2 0h3m-33 1h1m2 0h1m1 0h3m5 0h3m1 0h1m2 0h1m3 0h5m2 0h2m-25 1h6m2 0h1m1 0h4m1 0h2m3 0h1m1 0h3m-33 1h7m2 0h1m2 0h5m1 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h2m4 0h3m2 0h1m1 0h1m1 0h2m3 0h5m-33 1h1m1 0h3m1 0h1m1 0h2m3 0h3m2 0h1m2 0h1m2 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1m2 0h1m1 0h1m2 0h2m2 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h1m5 0h2m1 0h2m3 0h2m1 0h2m-31 1h1m5 0h1m4 0h1m2 0h1m1 0h1m1 0h5m2 0h1m2 0h3m-31 1h7m1 0h4m2 0h1m1 0h2m1 0h2m1 0h4m1 0h1m3 0h1"/></svg></div>
+        <button type="button" class="qr-code" onclick="qrOpen()" title="클릭하면 크게 보입니다" aria-label="QR 코드 크게 보기"><svg class="qr-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" role="img" aria-label="강의 자료실 주소 QR 코드" shape-rendering="crispEdges"><path stroke="#1f2937" d="M2 2.5h7m2 0h3m1 0h1m2 0h9m1 0h7m-33 1h1m5 0h1m2 0h1m1 0h7m8 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m1 0h5m4 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h1m4 0h5m2 0h1m1 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m3 0h1m1 0h2m5 0h1m-22 1h1m1 0h5m2 0h2m1 0h2m1 0h1m1 0h1m8 0h5m-31 1h1m3 0h1m2 0h2m1 0h2m4 0h1m1 0h2m1 0h4m1 0h2m1 0h2m1 0h1m-33 1h1m2 0h4m5 0h1m2 0h1m2 0h1m1 0h3m1 0h3m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h5m2 0h4m-31 1h3m2 0h2m1 0h2m7 0h1m4 0h1m1 0h1m1 0h3m2 0h1m-32 1h5m1 0h11m2 0h2m1 0h1m2 0h2m1 0h4m-32 1h1m4 0h2m2 0h2m2 0h1m3 0h2m1 0h1m2 0h3m3 0h2m-32 1h1m1 0h2m4 0h1m2 0h3m2 0h1m2 0h4m2 0h6m-31 1h2m4 0h1m1 0h1m1 0h1m1 0h2m3 0h1m1 0h2m3 0h2m1 0h2m3 0h1m-32 1h2m1 0h2m2 0h1m2 0h1m1 0h1m3 0h1m1 0h2m1 0h2m2 0h2m1 0h2m1 0h1m-28 1h3m5 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h4m1 0h2m-32 1h1m1 0h1m1 0h1m2 0h2m3 0h3m2 0h2m2 0h2m1 0h1m2 0h6m-33 1h2m2 0h3m1 0h1m1 0h3m2 0h2m2 0h3m1 0h1m1 0h1m1 0h3m-30 1h1m2 0h3m5 0h1m1 0h3m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h1m-33 1h1m1 0h5m5 0h1m2 0h2m3 0h3m3 0h1m2 0h1m1 0h1m-32 1h1m2 0h3m1 0h2m1 0h3m2 0h1m2 0h1m2 0h1m1 0h2m2 0h1m2 0h3m-33 1h1m2 0h1m1 0h3m5 0h3m1 0h1m2 0h1m3 0h5m2 0h2m-25 1h6m2 0h1m1 0h4m1 0h2m3 0h1m1 0h3m-33 1h7m2 0h1m2 0h5m1 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h2m4 0h3m2 0h1m1 0h1m1 0h2m3 0h5m-33 1h1m1 0h3m1 0h1m1 0h2m3 0h3m2 0h1m2 0h1m2 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1m2 0h1m1 0h1m2 0h2m2 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h1m5 0h2m1 0h2m3 0h2m1 0h2m-31 1h1m5 0h1m4 0h1m2 0h1m1 0h1m1 0h5m2 0h1m2 0h3m-31 1h7m1 0h4m2 0h1m1 0h2m1 0h2m1 0h4m1 0h1m3 0h1"/></svg><span class="qr-zoom">클릭하면 크게</span></button>
         <div class="qr-body">
           <h3>이 페이지를 휴대폰에서도</h3>
           <p>QR을 찍으면 지금 보고 있는 강의 자료실이 열립니다. 실습 프롬프트는 <b>복사 버튼</b>으로 바로 붙여넣을 수 있고, 강의가 끝난 뒤에도 언제든 다시 볼 수 있습니다.</p>
@@ -184,6 +195,44 @@
       else if(e.key==='0'){scaleReset();}
     });
     paint();
+  })();
+
+  /* QR 확대 보기 — 클릭하면 전체 화면, 다시 클릭하거나 Esc로 닫힘 */
+  (function(){
+    var modal=null, opener=null;
+    window.qrOpen=function(){
+      if(modal) return;
+      opener=document.activeElement;
+      var svg=document.querySelector('.qr-code .qr-img').cloneNode(true);
+      svg.removeAttribute('class');
+      modal=document.createElement('div');
+      modal.className='qr-modal';
+      modal.setAttribute('role','dialog');
+      modal.setAttribute('aria-modal','true');
+      modal.setAttribute('aria-label','강의 자료실 QR 코드 확대');
+      modal.tabIndex=-1;
+      var sheet=document.createElement('div');
+      sheet.className='sheet';
+      sheet.appendChild(svg);
+      var cap=document.createElement('div');
+      cap.className='cap';
+      cap.innerHTML='https://hkyj5614-sys.github.io/sido-ai-lecture/<small>화면을 누르거나 Esc를 누르면 닫힙니다</small>';
+      modal.appendChild(sheet);
+      modal.appendChild(cap);
+      modal.addEventListener('click',qrClose);
+      document.body.appendChild(modal);
+      document.body.style.overflow='hidden';
+      modal.focus();
+    };
+    window.qrClose=function(){
+      if(!modal) return;
+      modal.remove(); modal=null;
+      document.body.style.overflow='';
+      if(opener&&opener.focus) opener.focus();
+    };
+    document.addEventListener('keydown',function(e){
+      if(modal&&(e.key==='Escape'||e.key==='Enter'||e.key===' ')){e.preventDefault();qrClose();}
+    });
   })();
 </script>
 </body>
