@@ -59,6 +59,11 @@
   }
   .mark{flex:none;margin-left:auto;font-size:clamp(18px,1.8vw,27px);font-weight:800;opacity:0;transition:opacity .2s;}
 
+  .options.ox{grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,18px);}
+  .options.ox .opt{justify-content:center;gap:clamp(10px,1.2vw,16px);font-size:clamp(17px,1.9vw,27px);font-weight:700;}
+  .options.ox .key{width:clamp(38px,3.6vw,54px);height:clamp(38px,3.6vw,54px);font-size:clamp(19px,1.9vw,28px);}
+  .options.ox .mark{margin-left:0;}
+  @media(max-width:520px){.options.ox{grid-template-columns:1fr;}}
   .opt.right{border-color:var(--ok-line);background:var(--ok-soft);}
   .opt.right .key{background:var(--ok);color:#fff;}
   .opt.right .mark{opacity:1;color:var(--ok);}
@@ -118,11 +123,25 @@
 <div class="statusbar"></div>
 
 <div class="stage">
-  <div class="eyebrow"><span class="tick"></span>4차시 · 속도와 토큰 관리</div>
+  <div class="eyebrow"><span class="tick"></span>속도와 토큰 관리</div>
+
+  <section class="quiz" data-answer="0">
+    <span class="qno">문제 1 · OX</span>
+    <h1 class="ask">대화가 길어지면 <em>답이 느려진다.</em></h1>
+    <ul class="options ox">
+      <li><button type="button" class="opt"><span class="key">O</span><span>맞다</span><span class="mark" aria-hidden="true">✓</span></button></li>
+      <li><button type="button" class="opt"><span class="key">X</span><span>아니다</span><span class="mark" aria-hidden="true">✕</span></button></li>
+    </ul>
+    <div class="sol" hidden aria-live="polite">
+      <h2>정답은 <span>O</span>입니다.</h2>
+      <p>대화가 쌓일수록 AI가 <b>매번 다시 읽어야 할 양이 늘어나기 때문에</b> 답이 점점 느려집니다. 컴퓨터가 느린 것도, 인터넷이 느린 것도 아닙니다.</p>
+      <p><b>다만 기준은 시간이 아니라 주고받은 양입니다.</b> 30분 동안 두세 번만 주고받았다면 여전히 가볍고, 5분 동안 사진 열 장을 올렸다면 이미 무겁습니다. 창을 오래 켜 둔 것 자체는 상관이 없습니다.</p>
+    </div>
+  </section>
 
   <section class="quiz" data-answer="1">
-    <span class="qno">문제 1</span>
-    <h1 class="ask">30분 넘게 대화한 AI는 <em>맨 처음에 알려준 내용</em>을 어떻게 하고 있을까요?</h1>
+    <span class="qno">문제 2</span>
+    <h1 class="ask">스무 번 넘게 주고받은 AI는 <em>맨 처음에 알려준 내용</em>을 어떻게 하고 있을까요?</h1>
     <ul class="options">
       <li><button type="button" class="opt"><span class="key">1</span><span>중요한 내용만 요약해서 기억해 둔다</span><span class="mark" aria-hidden="true">✕</span></button></li>
       <li><button type="button" class="opt"><span class="key">2</span><span>질문할 때마다 처음부터 전부 다시 읽는다</span><span class="mark" aria-hidden="true">✓</span></button></li>
@@ -143,7 +162,7 @@
   </section>
 
   <section class="quiz" data-answer="1">
-    <span class="qno">문제 2</span>
+    <span class="qno">문제 3</span>
     <h1 class="ask">같은 대화창에서 다음 중 <em>대화를 가장 무겁게</em> 만드는 것은?</h1>
     <ul class="options">
       <li><button type="button" class="opt"><span class="key">1</span><span>A4 세 장 분량의 글을 붙여넣기</span><span class="mark" aria-hidden="true">✕</span></button></li>
@@ -164,7 +183,7 @@
   </section>
 
   <div class="foot">
-    <p class="hint">숫자키 1~4 또는 클릭으로 선택 · 0을 누르면 처음으로</p>
+    <p class="hint">클릭 또는 숫자키로 선택 (OX는 1=O, 2=X) · 0을 누르면 처음으로</p>
     <button type="button" class="again" id="again">다시 풀기</button>
   </div>
 </div>
@@ -215,7 +234,11 @@
       if(e.target.matches('input,textarea')) return;
       if(e.key >= '1' && e.key <= '4'){
         var next = quizzes.filter(function(q){ return !q.done; })[0];
-        if(next) pick(next, +e.key - 1);
+        var i = +e.key - 1;
+        if(next && i < next.opts.length) pick(next, i);
+      } else if(e.key === 'o' || e.key === 'O' || e.key === 'x' || e.key === 'X'){
+        var oxq = quizzes.filter(function(q){ return !q.done && q.opts.length === 2; })[0];
+        if(oxq) pick(oxq, (e.key === 'o' || e.key === 'O') ? 0 : 1);
       } else if(e.key === '0' || e.key === 'Escape'){
         reset();
       }
