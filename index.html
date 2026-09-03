@@ -41,6 +41,15 @@
   .session-card .go{margin-top:16px;font-size:13.5px;font-weight:700;color:var(--brand-dark);display:inline-flex;align-items:center;gap:5px;}
   .session-card .go::after{content:"→";transition:.18s;}
   .session-card:hover .go::after{transform:translateX(4px);}
+  .qr-card{display:flex;align-items:center;gap:28px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;}
+  .qr-code{flex:none;width:168px;height:168px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:12px;}
+  .qr-img{display:block;width:100%;height:100%;}
+  .qr-body h3{margin:0 0 8px;font-size:19px;letter-spacing:-.5px;}
+  .qr-body p{margin:0 0 14px;font-size:14.5px;color:var(--ink-soft);}
+  .qr-url{display:inline-block;font-size:14px;font-weight:700;color:var(--brand-dark);background:var(--brand-soft);border:1px solid #dbe7f6;border-radius:999px;padding:7px 16px;text-decoration:none;word-break:break-all;transition:.15s;}
+  .qr-url:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+  @media(max-width:640px){.qr-card{flex-direction:column;text-align:center;gap:18px;padding:24px 20px;}.qr-code{width:200px;height:200px;}}
+  @media print{.qr-card{break-inside:avoid;}}
   footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:13px;text-align:center;padding:24px 0;}
   footer strong{color:var(--ink);}
   @media(max-width:640px){.hero h1{font-size:26px;}}
@@ -113,6 +122,22 @@
           <p class="desc">가이드 → 조사 → 작성 → 검토 4단계 프롬프트와 보고서를 발표 PPT로 바꾸는 법</p>
           <span class="go">강의안 보기</span>
         </a>
+      </div>
+    </section>
+
+    <section id="qr">
+      <div class="sec-title">
+        <span class="dot"></span>
+        <h2>강의 자료실 바로가기</h2>
+        <span class="hint">휴대폰 카메라로 QR을 비추세요</span>
+      </div>
+      <div class="qr-card">
+        <div class="qr-code"><svg class="qr-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" role="img" aria-label="강의 자료실 주소 QR 코드" shape-rendering="crispEdges"><path stroke="#1f2937" d="M2 2.5h7m2 0h3m1 0h1m2 0h9m1 0h7m-33 1h1m5 0h1m2 0h1m1 0h7m8 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m1 0h5m4 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h1m4 0h5m2 0h1m1 0h1m3 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m3 0h1m1 0h2m5 0h1m-22 1h1m1 0h5m2 0h2m1 0h2m1 0h1m1 0h1m8 0h5m-31 1h1m3 0h1m2 0h2m1 0h2m4 0h1m1 0h2m1 0h4m1 0h2m1 0h2m1 0h1m-33 1h1m2 0h4m5 0h1m2 0h1m2 0h1m1 0h3m1 0h3m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h5m2 0h4m-31 1h3m2 0h2m1 0h2m7 0h1m4 0h1m1 0h1m1 0h3m2 0h1m-32 1h5m1 0h11m2 0h2m1 0h1m2 0h2m1 0h4m-32 1h1m4 0h2m2 0h2m2 0h1m3 0h2m1 0h1m2 0h3m3 0h2m-32 1h1m1 0h2m4 0h1m2 0h3m2 0h1m2 0h4m2 0h6m-31 1h2m4 0h1m1 0h1m1 0h1m1 0h2m3 0h1m1 0h2m3 0h2m1 0h2m3 0h1m-32 1h2m1 0h2m2 0h1m2 0h1m1 0h1m3 0h1m1 0h2m1 0h2m2 0h2m1 0h2m1 0h1m-28 1h3m5 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h4m1 0h2m-32 1h1m1 0h1m1 0h1m2 0h2m3 0h3m2 0h2m2 0h2m1 0h1m2 0h6m-33 1h2m2 0h3m1 0h1m1 0h3m2 0h2m2 0h3m1 0h1m1 0h1m1 0h3m-30 1h1m2 0h3m5 0h1m1 0h3m2 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h1m-33 1h1m1 0h5m5 0h1m2 0h2m3 0h3m3 0h1m2 0h1m1 0h1m-32 1h1m2 0h3m1 0h2m1 0h3m2 0h1m2 0h1m2 0h1m1 0h2m2 0h1m2 0h3m-33 1h1m2 0h1m1 0h3m5 0h3m1 0h1m2 0h1m3 0h5m2 0h2m-25 1h6m2 0h1m1 0h4m1 0h2m3 0h1m1 0h3m-33 1h7m2 0h1m2 0h5m1 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h2m4 0h3m2 0h1m1 0h1m1 0h2m3 0h5m-33 1h1m1 0h3m1 0h1m1 0h2m3 0h3m2 0h1m2 0h1m2 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1m2 0h1m1 0h1m2 0h2m2 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h1m5 0h2m1 0h2m3 0h2m1 0h2m-31 1h1m5 0h1m4 0h1m2 0h1m1 0h1m1 0h5m2 0h1m2 0h3m-31 1h7m1 0h4m2 0h1m1 0h2m1 0h2m1 0h4m1 0h1m3 0h1"/></svg></div>
+        <div class="qr-body">
+          <h3>이 페이지를 휴대폰에서도</h3>
+          <p>QR을 찍으면 지금 보고 있는 강의 자료실이 열립니다. 실습 프롬프트는 <b>복사 버튼</b>으로 바로 붙여넣을 수 있고, 강의가 끝난 뒤에도 언제든 다시 볼 수 있습니다.</p>
+          <a class="qr-url" href="https://hkyj5614-sys.github.io/sido-ai-lecture/" target="_blank" rel="noopener">https://hkyj5614-sys.github.io/sido-ai-lecture/</a>
+        </div>
       </div>
     </section>
 
